@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "426936132782",
+    "project_id": "mrs-geology",
+    "storage_bucket": "mrs-geology.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426936132782:android:628ee87f2e5c26a803793f",
+        "android_client_info": {
+          "package_name": "com.example.mrs_geology_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426936132782-em8g2i3o1hfk3at8qr9pij5g1riv1dk7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVWC5WDqbKPuCZ5PVsOG2MFn2SLmlzh3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426936132782-em8g2i3o1hfk3at8qr9pij5g1riv1dk7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426936132782:android:fde6fc23ee48bcbf03793f",
+        "android_client_info": {
+          "package_name": "com.example.seniora_sara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426936132782-em8g2i3o1hfk3at8qr9pij5g1riv1dk7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVWC5WDqbKPuCZ5PVsOG2MFn2SLmlzh3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426936132782-em8g2i3o1hfk3at8qr9pij5g1riv1dk7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
