@@ -111,7 +111,7 @@ class CustomDrawer extends GetView<MyDrawerController> {
                         _DrawerButton(
                             icon: Icons.developer_mode,
                             label: 'Developer',
-                            onPressed: () => controller.devemail()),
+                            onPressed: () => controller.developermail()),
                       ],
                     ),
                   ),

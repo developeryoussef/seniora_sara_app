@@ -113,14 +113,6 @@ class Resultcreen extends GetView<QuizController> {
                     padding: UIParameters.screenPadding,
                     child: Row(
                       children: [
-                        Expanded(
-                            child: MainButton(
-                          color: Colors.blueGrey,
-                          onTap: () {
-                            controller.tryAgain();
-                          },
-                          title: 'Try Again',
-                        )),
                         const SizedBox(
                           width: 5,
                         ),

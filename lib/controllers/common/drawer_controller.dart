@@ -21,20 +21,14 @@ class MyDrawerController extends GetxController {
     Get.find<AuthController>().navigateToLogin();
   }
 
-  void github() {
-    _launch('https://github.com/CodeFoxLk');
-  }
+  
 
-  void devemail() {
+  void developermail() {
     final Uri emailLaunchUri = Uri(
       scheme: 'mailto',
       path: 'youssefhussainnasr2000@gmail.com',
     );
     _launch(emailLaunchUri.toString());
-  }
-
-  void downloadSourceCode() {
-    _launch('https://github.com/CodeFoxLk/quizzle_public.git');
   }
 
   @override

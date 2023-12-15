@@ -1,4 +1,4 @@
-package com.example.seniora_sara
+package dev.youssef.ssq
 
 import io.flutter.embedding.android.FlutterActivity
 

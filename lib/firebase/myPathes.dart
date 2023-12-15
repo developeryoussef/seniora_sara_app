@@ -6,6 +6,8 @@ final fi = FirebaseFirestore.instance;
 
 final userFR = fi.collection('users');
 final quizePaperFR = fi.collection('quizpapers');
+final homeWorkPaperFR = fi.collection('homeworkpapers');
+
 final leaderBoardFR = fi.collection('leaderboard');
 
 DocumentReference recentQuizesData(
@@ -23,5 +25,8 @@ CollectionReference<Map<String, dynamic>> getleaderBoard(
 DocumentReference questionsFR(
         {required String paperId, required String questionsId}) =>
     quizePaperFR.doc(paperId).collection('questions').doc(questionsId);
+DocumentReference homeworkFR(
+        {required String paperId, required String questionsId}) =>
+    homeWorkPaperFR.doc(paperId).collection('questions').doc(questionsId);
 
 //Reference get firebaseStorage => FirebaseStorage.instanceFor(bucket: 'gs://fire-base-chat-cc3e9.appspot.com').ref();

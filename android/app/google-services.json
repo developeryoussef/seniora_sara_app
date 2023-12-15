@@ -43,6 +43,80 @@
       },
       "oauth_client": [
         {
+          "client_id": "426936132782-fh1jhdrfrtffrkkb23tf5872n18olqk1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.seniora_sara",
+            "certificate_hash": "5281931468320525da122de2b39913ff480ce45b"
+          }
+        },
+        {
+          "client_id": "426936132782-em8g2i3o1hfk3at8qr9pij5g1riv1dk7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVWC5WDqbKPuCZ5PVsOG2MFn2SLmlzh3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426936132782-em8g2i3o1hfk3at8qr9pij5g1riv1dk7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426936132782:android:7cf82e116032255a03793f",
+        "android_client_info": {
+          "package_name": "com.example.seniorasara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426936132782-l6vi47vtdpu1ls5ee8a3ajm1pcpm5vqq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.seniorasara",
+            "certificate_hash": "a3a3a7009cd35d85ade0d1374e8453726ebd03fe"
+          }
+        },
+        {
+          "client_id": "426936132782-em8g2i3o1hfk3at8qr9pij5g1riv1dk7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVWC5WDqbKPuCZ5PVsOG2MFn2SLmlzh3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426936132782-em8g2i3o1hfk3at8qr9pij5g1riv1dk7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426936132782:android:63bf86fcce27af4a03793f",
+        "android_client_info": {
+          "package_name": "dev.youssef.ssq"
+        }
+      },
+      "oauth_client": [
+        {
           "client_id": "426936132782-em8g2i3o1hfk3at8qr9pij5g1riv1dk7.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -1,4 +1,11 @@
 import 'package:get/get.dart';
+import 'package:seniora_sara/controllers/quiz_paper/home_work_controller.dart';
+import 'package:seniora_sara/controllers/quiz_paper/homeworkscontroller.dart';
+import 'package:seniora_sara/screens/home/homework_home_screen.dart';
+import 'package:seniora_sara/screens/homework/answercheck_screen.dart';
+import 'package:seniora_sara/screens/homework/homework_screen.dart';
+import 'package:seniora_sara/screens/homework/homeworkoverview_screen.dart';
+import 'package:seniora_sara/screens/viewcontroller.dart';
 import '../screens/screens.dart';
 import '../screens/splash/splash.dart';
 import '../controllers/common/drawer_controller.dart';
@@ -16,11 +23,12 @@ class AppRoutes {
           name: SplashScreen.routeName,
         ),
         GetPage(
-            page: () => const HomeScreen(),
-            name: HomeScreen.routeName,
+            page: () => ViewController(),
+            name: ViewController.routeName,
             binding: BindingsBuilder(() {
               Get.put(QuizPaperController());
               Get.put(MyDrawerController());
+              Get.put(HomeWorkPapersController());
             })),
         GetPage(page: () => const LoginScreen(), name: LoginScreen.routeName),
         GetPage(
@@ -28,7 +36,6 @@ class AppRoutes {
             name: ProfileScreen.routeName,
             binding: BindingsBuilder(() {
               Get.put(QuizPaperController());
-              Get.put(ProfileController());
             })),
         GetPage(
             page: () => LeaderBoardScreen(),
@@ -49,5 +56,21 @@ class AppRoutes {
             page: () => const QuizOverviewScreen(),
             name: QuizOverviewScreen.routeName),
         GetPage(page: () => const Resultcreen(), name: Resultcreen.routeName),
+        //
+        //
+        //
+        //
+        GetPage(
+            page: () => HomeWorkScreen(),
+            name: HomeWorkScreen.routeName,
+            binding: BindingsBuilder(() {
+              Get.put<HomeWorkController>(HomeWorkController());
+            })),
+        GetPage(
+            page: () => const HomeworkAnswersCheckScreen(),
+            name: HomeworkAnswersCheckScreen.routeName),
+        GetPage(
+            page: () => const HomeWorkOverviewScreen(),
+            name: HomeWorkOverviewScreen.routeName),
       ];
 }

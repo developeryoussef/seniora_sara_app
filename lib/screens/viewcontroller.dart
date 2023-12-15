@@ -3,59 +3,44 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:line_icons/line_icons.dart';
+
+import '../configs/themes/light_theme.dart';
 import '../main.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+
+import 'home/homework_home_screen.dart';
+import 'home/quiz_home_screen.dart';
+import 'home/sessions_screen.dart';
 
 
 class ViewController extends StatefulWidget {
+      static const String routeName = '/homescreen';
+
   @override
   _ViewControllerState createState() => _ViewControllerState();
 }
 
 class _ViewControllerState extends State<ViewController> {
-  @override
-  void initState() {
-    sharedPreferences!.getString('term') != 'firsterm' ||
-            sharedPreferences!.getString('term') != 'secondterm'
-        ? sharedPreferences!.setString('term', 'firsterm')
-        : null;
-
-    super.initState();
-  }
 
   int currentindex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
   final List<Widget> _widgetOptions = <Widget>[
-    HomePage(),
-    AddQuizPage(),
-    SearchPage(),
+    HomeScreen(),
+    HomeWorkScreenScreen(),
+    SessionsScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: currentindex != 2
-          ? AppBar(
-              iconTheme: currentindex == 2 ? null : IconThemeData.fallback(),
-              actions: currentindex != 2
-                  ? null
-                  : [
-                      IconButton(onPressed: () {}, icon: Icon(LineIcons.search))
-                    ],
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-              centerTitle: true,
-              title: Text(
-                'Signora Sara Quizes',
-                style: TextStyle(color: Colors.black),
-              ),
-            )
-          : null,
-      backgroundColor: itGrey,
+      
+      backgroundColor: kPrimayLightColorLT,
       body: _widgetOptions[currentindex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: itGrey,
+          color: Colors.grey.shade100,
           boxShadow: [
             BoxShadow(
               blurRadius: 20,
@@ -65,30 +50,24 @@ class _ViewControllerState extends State<ViewController> {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 10),
             child: GNav(
               rippleColor: Colors.grey.shade300,
               hoverColor: Colors.grey[300]!,
-              gap: 13,
+              gap: 17.5,
               activeColor: Colors.black,
-              iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              iconSize: 23,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               duration: Duration(milliseconds: 600),
-              tabBackgroundColor: itGreen,
+              tabBackgroundColor: kPrimayColorLT,
               color: Colors.black,
               tabs: [
                 GButton(
-                  icon: LineIcons.home,
-                  text: 'Home',
+                  icon: LineIcons.question,
+                  text: ' Quizes ',
                 ),
-                GButton(
-                  icon: LineIcons.ad,
-                  text: 'Add Quiz',
-                ),
-                GButton(
-                  icon: LineIcons.search,
-                  text: 'Search',
-                ),
+                GButton(icon: LineIcons.home , text: 'Homework',),
+                GButton(icon: LineIcons.video , text: 'Sessions',),
               ],
               selectedIndex: currentindex,
               onTabChange: (index) {

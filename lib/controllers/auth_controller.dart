@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../screens/viewcontroller.dart';
 import '../utils/logger.dart';
 import '../screens/screens.dart';
 import '../widgets/dialogs/dialogs.dart';
@@ -8,6 +9,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../screens/auth_and_profile/login_screen.dart';
 
 class AuthController extends GetxController {
+  
   @override
   void onReady() {
     initAuth();
@@ -76,7 +78,7 @@ class AuthController extends GetxController {
   }
 
   void navigateToHome() {
-    Get.offAllNamed(HomeScreen.routeName);
+    Get.offAllNamed(ViewController.routeName);
   }
 
   void navigateToLogin() {

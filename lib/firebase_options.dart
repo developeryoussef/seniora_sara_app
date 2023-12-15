@@ -60,7 +60,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBVWC5WDqbKPuCZ5PVsOG2MFn2SLmlzh3E',
-    appId: '1:426936132782:android:fde6fc23ee48bcbf03793f',
+    appId: '1:426936132782:android:63bf86fcce27af4a03793f',
     messagingSenderId: '426936132782',
     projectId: 'mrs-geology',
     storageBucket: 'mrs-geology.appspot.com',

@@ -1,3 +1,9 @@
+// ignore_for_file: unused_local_variable, unnecessary_cast
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import '../../configs/themes/light_theme.dart';
 import '../screens.dart';
 import 'package:get/get.dart';
 import '../../widgets/widgets.dart';
@@ -16,10 +22,10 @@ import 'package:seniora_sara/configs/themes/ui_parameters.dart';
 import '../../controllers/leader_board/leader_board_controller.dart';
 // ignore_for_file: unused_import
 
-class ProfileScreen extends GetView<ProfileController> {
-  const ProfileScreen({Key? key}) : super(key: key);
-
+class ProfileScreen extends StatelessWidget {
   static const String routeName = '/profile';
+
+  const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -66,22 +72,36 @@ class ProfileScreen extends GetView<ProfileController> {
               ),
             ),
             Expanded(
-              child: Obx(
-                () => ContentArea(
-                  addPadding: false,
-                  child: ListView.separated(
-                    padding: UIParameters.screenPadding,
-                    itemCount: controller.allRecentTest.length,
-                    separatorBuilder: (BuildContext context, int index) {
-                      return const SizedBox(
-                        height: 15,
+              child: ContentArea(
+                addPadding: true,
+                child: StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection('users')
+                      .doc(FirebaseAuth.instance.currentUser?.email)
+                      .collection('myrecent_quizes')
+                      .snapshots(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return LinearProgressIndicator(
+                        color: kPrimayLightColorLT,
                       );
-                    },
-                    itemBuilder: (BuildContext context, int index) {
-                      return RecentQuizCard(
-                          recentTest: controller.allRecentTest[index]);
-                    },
-                  ),
+                    }
+                    return ListView.builder(
+                      itemCount: snapshot.data!.docs.length,
+                      itemBuilder: (context, index) {
+                        var data = snapshot.data!.docs[index].data()
+                            as Map<String, dynamic>;
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: RecentQuizCard(
+                            points: data['points'].toString(),
+                            time: data['time'].toString(),
+                            correctCount: data['correct_count'].toString(),
+                          ),
+                        );
+                      },
+                    );
+                  },
                 ),
               ),
             )

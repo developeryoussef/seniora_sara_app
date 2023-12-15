@@ -1,17 +1,18 @@
 import 'dart:async';
 import 'package:get/get.dart';
-import 'package:seniora_sara/screens/viewcontroller.dart';
+import 'package:seniora_sara/firebase/firebase_configs.dart';
+import '../../screens/viewcontroller.dart';
 import '../../utils/logger.dart';
 import '../auth_controller.dart';
 import '../../screens/screens.dart';
 import 'quiz_papers_controller.dart';
-import '../../firebase/myPathes.dart';
+
 import '../../firebase/loading_status.dart';
 import '../../models/quiz_paper_model.dart';
 import '../../widgets/dialogs/dialogs.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class QuizController extends GetxController {
+class HomeWorkController extends GetxController {
   final loadingStatus = LoadingStatus.loading.obs;
   final allQuestions = <Question>[];
   late QuizPaperModel quizPaperModel;
@@ -63,14 +64,14 @@ class QuizController extends GetxController {
     loadingStatus.value = LoadingStatus.loading;
     try {
       final QuerySnapshot<Map<String, dynamic>> questionsQuery =
-          await quizePaperFR.doc(quizPaper.id).collection('questions').get();
+          await homeWorkPaperFR.doc(quizPaper.id).collection('questions').get();
       final questions = questionsQuery.docs
           .map((question) => Question.fromSnapshot(question))
           .toList();
       quizPaper.questions = questions;
       for (Question _question in quizPaper.questions!) {
         final QuerySnapshot<Map<String, dynamic>> answersQuery =
-            await quizePaperFR
+            await homeWorkPaperFR
                 .doc(quizPaper.id)
                 .collection('questions')
                 .doc(_question.id)
@@ -152,7 +153,7 @@ class QuizController extends GetxController {
 
   void complete() {
     _timer!.cancel();
-    Get.offAndToNamed(Resultcreen.routeName);
+    Get.offAndToNamed(ViewController.routeName);
   }
 
   void tryAgain() {

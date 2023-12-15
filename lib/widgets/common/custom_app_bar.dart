@@ -1,3 +1,5 @@
+import 'package:seniora_sara/screens/homework/homeworkoverview_screen.dart';
+
 import 'circle_button.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +15,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.showActionIcon = false,
     this.leading,
     this.titleWidget,
-    this.onMenuActionTap,
+    this.onMenuActionTap, this.isHomework,
   }) : super(key: key);
 
   final String title;
+  final bool? isHomework;
   final Widget? titleWidget;
   final bool showActionIcon;
   final Widget? leading;
@@ -53,6 +56,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                         child: const Icon(Icons.menu),
                         onTap: onMenuActionTap ??
                             () {
+                              isHomework == true ? Get.to(HomeWorkOverviewScreen()) :
                               Get.to(QuizOverviewScreen());
                             },
                       ),

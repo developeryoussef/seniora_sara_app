@@ -5,9 +5,16 @@ import '../common/icon_with_text.dart';
 import 'package:easy_separator/easy_separator.dart';
 
 class RecentQuizCard extends StatelessWidget {
-  const RecentQuizCard({Key? key, required this.recentTest}) : super(key: key);
+  const RecentQuizCard(
+      {Key? key,
+      required this.time,
+      required this.correctCount,
+      required this.points})
+      : super(key: key);
 
-  final RecentTest recentTest;
+  final String correctCount;
+  final String time;
+  final String points;
 
   @override
   Widget build(BuildContext context) {
@@ -28,15 +35,10 @@ class RecentQuizCard extends StatelessWidget {
                   borderRadius: UIParameters.cardBorderRadius,
                   child: ColoredBox(
                     color: Theme.of(context).primaryColor.withOpacity(0.1),
-                    child: recentTest.paperimage == null
-                        ? const SizedBox(
-                            width: 40,
-                            height: 40,
-                          )
-                        : SizedBox(
-                            width: 40,
-                            height: 40,
-                            child: Image.asset('assets/Picture1.png')),
+                    child: SizedBox(
+                        width: 40,
+                        height: 40,
+                        child: Image.asset('assets/Picture1.png')),
                   ),
                 ),
                 const SizedBox(
@@ -47,7 +49,7 @@ class RecentQuizCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        recentTest.papername!,
+                        'Quiz',
                         style: cardTitleTs(context),
                       ),
                       const SizedBox(
@@ -73,21 +75,21 @@ class RecentQuizCard extends StatelessWidget {
                                   Icons.done_all,
                                   color: Colors.green,
                                 ),
-                                text: Text(recentTest.correctCount!),
+                                text: Text(correctCount),
                               ),
                               IconWithText(
                                 icon: const Icon(
                                   Icons.timer,
                                   color: Colors.orange,
                                 ),
-                                text: Text(recentTest.time!.toString()),
+                                text: Text(time.toString()),
                               ),
                               IconWithText(
                                 icon: const Icon(
                                   Icons.emoji_events_outlined,
                                   color: Colors.purple,
                                 ),
-                                text: Text(recentTest.points.toString()),
+                                text: Text(points.toString()),
                               ),
                             ],
                           ),
@@ -108,7 +110,7 @@ class RecentQuizCard extends StatelessWidget {
                 padding: UIParameters.screenPadding / 2,
                 child: const Center(
                   child: Text(
-                    'Try Again',
+                    'Good luck !!',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: kOnSurfaceTextColor),
